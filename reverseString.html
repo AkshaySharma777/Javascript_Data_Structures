@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reverse String</title>
+    <style>
+        body{
+            background: linear-gradient(to right, #b236e8, #3adebd) no-repeat;
+        }
+        h1{
+            background-color: rgb(165, 42, 42);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-shadow: 4px 4px 0px rgba(147, 177, 98, 0.8);
+        }
+        h1:hover{
+            background-color: transparent;
+            color: rgb(197, 139, 139);
+            text-shadow: none;
+        }
+        input{
+            background-color: transparent;
+        }
+        button {
+  background-color: rgba(200, 158, 31, 1); 
+  color: #ffffff; 
+  cursor: pointer;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px; 
+  transition: background-color 0.3s ease; 
+}
+button:hover{
+    background-color: rgba(200, 158, 31, 0.18);
+}
+
+    </style>
+  </head>
+  <body>
+    <center>
+      <h1>REVERSING A STRING IN JAVASCRIPT</h1>
+    </center>
+    <hr />
+    <label for="input">Enter a string : </label>
+    <input type="text" name="input" id="input" />
+    <br><br>
+    <button onclick="reverseString()">Reverse String</button><br />
+    <p id="output"></p>
+    <script>
+        function reverseString() {
+            let input = document.getElementById("input").value;
+            let temp = "!c";
+            for(let i = input.length-1; i >= 0; i--){
+              temp += input[i];
+            }
+            document.getElementById("output").innerHTML = temp;
+        }
+    </script>
+  </body>
+</html>

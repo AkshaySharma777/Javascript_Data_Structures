@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Array Comparison</title>
+    <style>
+        *{
+            padding: 0%;
+            margin: 0%;
+        }
+        section{
+            background: url(assets/images/bg2.jpg) no-repeat center;
+            background-size: cover;
+            height: 100vh;
+        }
+        h1, label, div{
+         color: white;
+        }
+        form{
+            padding: 20px;
+            margin: 20px;
+            border: 1px solid green;
+            width: fit-content;
+        }
+    </style>
+</head>
+
+<body>
+    <section>
+        <center>
+            <h1>
+                Array Comparison
+            </h1>
+              <form onsubmit="arrayCmp(event)">
+                <div>
+                    <label for="arr1">Enter an Array:</label>
+                    <input type="text" name="arr1" id="arr1" placeholder="Ex : cat bat rat" />
+                </div>
+                <br /><br />
+                <div>
+                    <label for="arr2">Enter an Array:</label>
+                    <input type="text" name="arr2" id="arr2" placeholder="Ex : fat cot cat" />
+                </div>
+                <br />
+                <div>
+                    <button type="submit">Submit</button>
+                </div>
+            </form>
+
+            <div id="result"></div>
+        </center>
+    </section>
+
+    <script>
+        function arrayCmp(event) {
+            event.preventDefault();
+
+            var input1 = document.getElementById("arr1").value;
+            var input2 = document.getElementById("arr2").value;
+
+            let arrayInput1 = input1.split(" ");
+            let arrayInput2 = input2.split(" ");
+            let thirdArray = [];
+
+            if (input1.length == 0 && input2.length == 0) {
+                document.getElementById("result").innerHTML = "Enter Array Input 1 <br> Enter Array Input 2";
+            } else if (input2.length == 0) {
+                document.getElementById("result").innerHTML = "Enter Array Input 2";
+            } else if (input1.length == 0) {
+                document.getElementById("result").innerHTML = "Enter Array Input 1";
+            } else {
+                for (let i = 0; i < arrayInput1.length; i++) {
+                    for (let j = 0; j < arrayInput2.length; j++) {
+                        if (arrayInput1[i] == arrayInput2[j]) {
+                            //   thirdArray += arrayInput1[i];
+                            thirdArray.push(arrayInput1[i]);
+                       }
+                    }
+                }
+                  
+                    
+                   }
+                document.getElementById("result").innerHTML = thirdArray;
+            
+        }
+    </script>
+</body>
+
+</html>
