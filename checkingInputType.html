@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JS-BASICS</title>
+    <style>
+        *{
+            margin: 0%;
+        }
+        section{
+            background: url(assets/images/bgLeaf.jpg) no-repeat center;
+            background-size: cover;
+            height: 100vh;
+            color: white;
+            display: flex;
+            flex-flow: column;
+            align-items: center;
+            justify-content: space-evenly;
+        }
+        form{
+            width: fit-content;
+            margin-top: 20px;
+            padding: 20px;
+            box-shadow: rgba(0, 0, 0, 0.55) 0px 5px 15px;
+        }
+      div,
+      input {
+        border: 2px solid purple;
+        height: 30px;
+        width: 200px;
+        background-color: transparent;
+      }
+    </style>
+  </head>
+  <body>
+   <section class="container">
+    <center>
+      <h1><u>To check if a character is an alphabet or number or special character.</u></h1>
+    </center>
+    <hr />
+    <center>
+     <form onsubmit="inpType(event)">
+      <label for="inputing">Enter a character</label>
+      <br />
+      <input type="text" id="inputing" />
+      <br /><br />
+      <label for="result">Result</label>
+      <div id="result"></div>
+      <br />
+      <button type="submit">Output</button>
+     </form>
+    </center>
+   </section>
+    <script>
+      function inpType(event) {
+        event.preventDefault();
+        //String.charCodeAt(x)
+        //if(b>='a' & b<='z')
+        var result = document.getElementById("result");
+        var inp = document.getElementById("inputing").value;
+        if(inp.length>0 && inp.length<=2){
+           if(inp>='a' && inp<='z'){
+                    result.innerHTML = "It is a  character";
+           }
+           else if(inp<=0 || inp>0){
+            result.innerHTML = "It is a  number";
+           }
+           else{
+            result.innerHTML = "It is a special character";
+           }
+        } else{
+           result.innerHTML = "Please input a single character";
+        }
+      }
+    </script>
+  </body>
+</html>

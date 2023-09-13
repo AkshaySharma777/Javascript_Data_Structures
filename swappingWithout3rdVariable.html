@@ -1,97 +1,127 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Swapping Of 2 Numbers Without 3rd Variable</title>
     <style>
-        * {
-            padding: 0%;
-            margin: 0%;
-        }
+      * {
+        padding: 0%;
+        margin: 0%;
+      }
 
-        section {
-            background: url(assets/images/bgImage.jpg) no-repeat center;
-            height: 100vh;
-        }
+      section {
+        background: url(assets/images/bgImage.jpg) no-repeat center;
+        height: 100vh;
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: center;
+        justify-content: center;
+      }
 
+      form {
+        border: 1px solid red;
+        width: fit-content;
+        padding: 20px;
+        margin: 50px;
+        display: flex;
+        flex-flow: column;
+        align-items: center;
+        justify-content: center;
+      }
+
+      h1 {
+        font-size: 30px;
+        color: white;
+        font-family: Georgia, "Times New Roman", Times, serif;
+        text-decoration: underline;
+        text-align: center;
+      }
+
+      button {
+        border-radius: 10px;
+        padding: 10px;
+        background-color: lightseagreen;
+      }
+
+      label,
+      p {
+        color: white;
+        font-size: 25px;
+      }
+
+      input {
+        background-color: rgba(165, 42, 42, 0.8);
+        padding: 5px;
+        color: aliceblue;
+        font-size: 20px;
+      }
+
+      p:hover {
+        background-color: rgb(165, 42, 42);
+        cursor: pointer;
+        width: fit-content;
+        padding: 10px;
+      }
+
+      @media (max-width: 768px) {
+        /* section{
+         
+        }  */
         form {
-            width: fit-content;
-            padding: 20px;
-            margin: 50px;
+          width: auto;
         }
+      }
 
-        h1 {
-            padding-top: 20px;
-            font-size: 30px;
-            color: white;
-            font-family: Georgia, 'Times New Roman', Times, serif;
-            text-decoration: underline;
-        }
-
-        button {
-            border-radius: 10px;
-            padding: 10px;
-            background-color: lightseagreen;
-        }
-
-        label,
-        p {
-            color: white;
-            font-size: 25px;
-        }
-
-        input {
-            background-color: rgba(165, 42, 42, 0.8);
-            padding: 5px;
-            color: aliceblue;
-            font-size: 20px;
-        }
-
-        p:hover {
-            background-color: rgb(165, 42, 42);
-            cursor: pointer;
-            width: fit-content;
-            padding: 10px;
-        }
+      @media (min-width: 769px) and (max-width: 1200px) {
+      }
     </style>
-</head>
+  </head>
 
-<body>
+  <body>
     <section>
-        <center>
-            <h1>Swapping of 2 Numbers Without 3rd Variable</h1>
-            <form onsubmit="swap(event)">
-                <br><br>
-                <label for="firstNumber">First Number = </label>
-                <input type="number" id="firstNumber" name="firstNumber" placeholder="Enter a number">
-                <br><br>
-                <label for="secondNumber">Second Number = </label>
-                <input type="number" id="secondNumber" name="secondNumber" placeholder="Enter a different number">
-                <br><br>
-                <button type="submit">SWAP</button>
-            </form>
-            <p id="result"></p>
-        </center>
+      <h1>Swapping of 2 Numbers Without 3rd Variable</h1>
+      <form onsubmit="swap(event)">
+        <div>
+          <label for="firstNumber">First Number = </label>
+          <input
+            type="number"
+            id="firstNumber"
+            name="firstNumber"
+            placeholder="Enter a number"
+          />
+        </div>
+        <div>
+          <label for="secondNumber">Second Number = </label>
+          <input
+            type="number"
+            id="secondNumber"
+            name="secondNumber"
+            placeholder="Enter a different number"
+          />
+        </div>
+
+        <button type="submit">SWAP</button>
+      </form>
+      <p id="result"></p>
     </section>
     <script>
-        function swap(holder) {
-            holder.preventDefault();
-            let firstNumber = Number(document.getElementById("firstNumber").value);
-            let secondNumber = Number(document.getElementById("secondNumber").value);
-            let result = document.getElementById("result");
-            if (firstNumber == secondNumber) {
-                result.innerText = "Please Enter A Different Number";
-            } else {
-                firstNumber = firstNumber + secondNumber;
-                secondNumber = firstNumber - secondNumber;
-                firstNumber = firstNumber - secondNumber;
-                result.innerHTML =
-                    `After Swapping First Number = ${firstNumber} <br> After Swapping Second Number = ${secondNumber}`;
-            }
+      function swap(holder) {
+        holder.preventDefault();
+        let firstNumber = Number(document.getElementById("firstNumber").value);
+        let secondNumber = Number(
+          document.getElementById("secondNumber").value
+        );
+        let result = document.getElementById("result");
+        if (firstNumber == secondNumber) {
+          result.innerText = "Please Enter A Different Number";
+        } else {
+          firstNumber = firstNumber + secondNumber;
+          secondNumber = firstNumber - secondNumber;
+          firstNumber = firstNumber - secondNumber;
+          result.innerHTML = `After Swapping First Number = ${firstNumber} <br> After Swapping Second Number = ${secondNumber}`;
         }
+      }
     </script>
-</body>
-
+  </body>
 </html>
