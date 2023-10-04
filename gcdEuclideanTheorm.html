@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checking Fibonacci Series</title>
+</head>
+
+<body>
+    <center>
+        <h1><u>Finding GCD using Euclidean Algorithm</u></h1>
+        <p>
+            The Euclidean algorithm is a way to find the greatest common divisor of two positive integers. GCD of two
+            numbers is the largest number that divides both of them.
+        </p>
+    </center>
+    <hr>
+
+    <form onsubmit="checkGCD(event)">
+        <label for="num1">Enter First Number</label>
+        <input type="number" name="num1" id="num1">
+
+        <label for="num2">Enter Second Number</label>
+        <input type="number" name="num2" id="num2">
+
+        <button type="submit">GCD</button>
+        <button type="reset">Reset</button>
+
+    </form>
+
+    <h3 id="output"></h3>
+
+    <script>
+        function checkGCD(event) {
+            event.preventDefault();
+            var num1 = Number(document.getElementById("num1").value);
+            var num2 = Number(document.getElementById("num2").value);
+            var result = document.getElementById("output");
+            if(num1 == 0){
+                result.innerHTML=`GCD = ${num2}`;
+            }
+            else if(num2 == 0){
+                result.innerHTML=`GCD = ${num1}`;
+            }
+        
+            var ans = euclidGCD(num1, num2);
+              result.innerHTML = "GCD = " + ans;
+        }
+            function euclidGCD(num1, num2) {
+                var gcd;
+                
+                if (num1 === num2) {
+                    gcd = num1;
+                } else if (num1 > num2) {
+                  gcd = euclidGCD((num1 - num2), num2);
+                } else if (num1 < num2) {
+                    gcd = euclidGCD(num1, (num2 - num1));
+                    }
+                    return gcd;
+                }
+        
+
+    </script>
+</body>
+
+</html>

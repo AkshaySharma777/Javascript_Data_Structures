@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checking Type Of Angled Triangle</title>
+</head>
+<body>
+  <center>
+    <h1>Checking Type Of Triangle Based On Angle.</h1>
+  </center>
+  <hr>
+
+  <form onsubmit="checkAngle(event)">
+   <label for="angle1">Enter First Angle</label>
+   <input type="number" name="angle1" id="angle1">
+
+   <label for="angle2">Enter Second Angle</label>
+   <input type="number" name="angle2" id="angle2">
+
+   <label for="angle3">Enter Third Angle</label>
+   <input type="number" name="angle3" id="angle3">
+
+   <button type="submit">Check</button>
+  </form>
+ 
+  <h3 id="output"></h3>
+
+   <script>
+    function checkAngle(event){
+         event.preventDefault();
+         let angle1 = Number(document.getElementById("angle1").value);
+         let angle2 = Number(document.getElementById("angle2").value);
+         let angle3 = Number(document.getElementById("angle3").value);
+         let output = document.getElementById("output");
+         let sumOfAllAngles = angle1 + angle2 + angle3;
+         if(angle1==""||angle2==""||angle3==""){
+            output.innerHTML = `Enter all values`;
+         } else {
+         if (sumOfAllAngles == 180) {
+            output.innerHTML = `Sum of the 3 angles of triangle = ${sumOfAllAngles} <br> Valid Triangle`;
+         } else {
+            output.innerHTML = `Sum of the 3 angles of triangle = ${sumOfAllAngles} <br> Invalid Triangle`;
+         }
+        }
+     }
+   </script>
+</body>
+</html>

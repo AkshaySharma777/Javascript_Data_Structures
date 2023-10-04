@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checking Fibonacci Series</title>
+</head>
+<body>
+  <center>
+    <h1>Checking if the numbers is in Fibonacci Series</h1>
+  </center>
+  <hr>
+
+  <form onsubmit="checkFibonacci(event)">
+   <label for="fibonacci">Enter First Angle</label>
+   <input type="text" name="fibonacci" id="fibonacci">
+
+   <button type="submit">Check Fibonacci</button>
+  </form>
+ 
+  <h3 id="output"></h3>
+
+   <script>
+    function checkFibonacci(event){
+         event.preventDefault();
+         let inp = document.getElementById("fibonacci").value;
+         let arrayInput = inp.split(" ").map(Number);
+         let output = document.getElementById("output");
+         let flag = false;
+         if(arrayInput.length>=3){
+         for (let i = 0; i < arrayInput.length-2; i++) {
+            if(arrayInput[i] + arrayInput[i+1] == arrayInput[i+2]){
+                flag = true;
+            } else {
+                flag = false;
+            }
+         }
+         if(flag){
+          output.innerHTML = `It is Fibonacci Series.`;
+         } else {
+            output.innerHTML = `It is Not Fibonacci Series.`;
+         }
+      } else {
+        output.innerHTML=`Please enter at least three numbers to find out whether it's a fibonacci series or not.`
+        }
+     }
+   </script>
+</body>
+</html>

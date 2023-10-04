@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checking Fibonacci Series</title>
+</head>
+
+<body>
+    <center>
+        <h1><u>Finding GCD using Euclidean Algorithm</u></h1>
+        <p>
+            The Euclidean algorithm is a way to find the greatest common divisor of two positive integers. GCD of two
+            numbers is the largest number that divides both of them.
+        </p>
+    </center>
+    <hr>
+
+    <form onsubmit="primeNumber(event)">
+        <label for="num">Enter Number</label>
+        <input type="number" name="num" id="num">
+
+        <button type="submit">Check</button>
+        <button type="reset">Reset</button>
+
+    </form>
+
+    <h3 id="output"></h3>
+
+    <script>
+        function primeNumber(event) {
+            event.preventDefault();
+            var num = Number(document.getElementById("num").value);
+            var result = document.getElementById("output");
+            var flag = true;
+            if (num > 1) {
+                for (let i = 2; i < Math.sqrt(num); i++) {
+                    if (num % i == 0) {
+                        flag = false;
+                        break;
+                    }
+                }
+                 if (flag)  {
+                 result.innerHTML = `${num} is a Prime Number`;
+             } else{
+                result.innerHTML = `${num} is not a Prime Number`;
+             }
+             }
+             else{
+                result.innerHTML = `${num} is not a Prime Number`;
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Merge Sorting</title>
+  </head>
+
+  <body>
+    <center>
+        <h1>Merge Sort Algorithm</h1>
+        <hr />
+        <form onsubmit="mergeSorting(event)" onreset="resetting()">
+        <label for="mergeSort">
+         Enter array of numbers <br><br>
+         </label>
+      <input type="text" name="mergeSort" id="mergeSort" />
+      <br><br>
+      <button type="submit">Output</button>
+      <button type="reset">Reset</button>
+      <h2 id="result"></h2>
+    </form>
+    </center>
+
+    <script>
+        function mergeSorting(event){
+            event.preventDefault();
+            var input = document.getElementById("mergeSort").value;
+            var arrayInput = input.split(" ").map(Number);
+            var result = document.getElementById("result");
+           
+            for (let i = 0; i < arrayInput.length-1; i++) {
+                    for (let j = i+1; j < arrayInput.length; j++) {
+                        if (arrayInput[i]>arrayInput[j]) {
+                            [arrayInput[i], arrayInput[j]] = [arrayInput[j], arrayInput[i]];
+                        }
+                    }
+            }
+            result.innerHTML = "Merge Sort Result = " + arrayInput;
+        }
+        function resetting(){
+            result.innerHTML = "";
+        }
+    </script>
+  </body>
+</html>

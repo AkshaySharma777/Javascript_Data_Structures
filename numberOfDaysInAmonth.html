@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Of Days In A Month</title>
+</head>
+<body>
+    <label for="year">Please Select Year</label>
+    <input type="number" name="year" id="year">
+    <label for="month">Please Select Month</label>
+    <select name="month" id="month">
+        <option value="1">January</option>
+        <option value="2">February</option>
+        <option value="3">March</option>
+        <option value="4">April</option>
+        <option value="5">May</option>
+        <option value="6">June</option>
+        <option value="7">July</option>
+        <option value="8">August</option>
+        <option value="9">September</option>
+        <option value="10">October</option>
+        <option value="11">November</option>
+        <option value="12">December</option>
+    </select>
+    <br>
+    <button onclick="daysInMonth()">Check</button>
+    <br>
+    <h3 id="output"></h3>
+    <script>
+        function daysInMonth(){
+          let inp = document.getElementById("month").value;
+          let year = Number(document.getElementById("year").value);
+          let result = document.getElementById("output");
+          if(inp==1||inp==3||inp==5||inp==7||inp==8||inp==10||inp==12){
+            result.innerHTML = `It has 31 days.`;
+          } else if(inp==2){
+             if(year.length==4){
+              if(year%4==0){
+              result.innerHTML = `It has 29 days.`;
+              } else {
+               result.innerHTML = `It has 28 days.`;
+              }
+             } else {
+              result.innerHTML = "Enter year";
+             }
+            } 
+          else {
+            result.innerHTML = `It has 30 days.`;
+          } 
+        }
+    </script>
+</body>
+</html>
